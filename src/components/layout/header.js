@@ -12,7 +12,7 @@ export default function Header() {
       <div className="flex items-center z-[1]">
         <div className="relative flex items-center h-[8rem] w-[24rem]">
           <Link href="/" passhref>
-            <Image src={logo} alt={info.companyName} layout="fill" objectFit="contain"/>
+            <a><Image src={logo} alt={info.companyName} layout="fill" objectFit="contain"/></a>
           </Link>
         </div>
       </div>

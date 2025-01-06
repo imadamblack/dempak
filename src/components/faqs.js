@@ -30,7 +30,7 @@ export default function Faqs() {
     <section className='bg-gray-100 py-12'>
       <div className='container'>
         {questions.map((q, i) =>
-          <div className="w-full shadow-sm mb-2">
+          <div key={`faq-${i}`} className="w-full shadow-sm mb-2">
             <p
               id={i}
               className="w-full p-4 font-bold bg-white mb-0 cursor-pointer rounded-lg border border-gray-200"

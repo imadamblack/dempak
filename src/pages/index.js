@@ -80,7 +80,8 @@ export default function Home() {
         </div>
         <div className="reading-container">
           <p className="ft-2">
-            Queremos ayudarte a reducir costos operativos, aumentar tu productividad y mejorar la presentación de tu producto para que te posiciones como líder en tu industria.
+            Queremos ayudarte a reducir costos operativos, aumentar tu productividad y mejorar la presentación de tu
+            producto para que te posiciones como líder en tu industria.
             <br/><br/>
             Así, podrás llevar a tu negocio al siguiente nivel con producciones más grandes, llevando tu operación a un
             nuevo nivel de productividad y calidad.
@@ -142,11 +143,13 @@ export default function Home() {
             <Image src={i08} className="object-cover object-bottom"/>
           </div>
           <div className="flex flex-col justify-center">
-            <h3 className="order-1 md:order-2 mb-8 ft-5 font-bold">Hecha para el sector alimenticio, farmacéutico e industrial</h3>
+            <h3 className="order-1 md:order-2 mb-8 ft-5 font-bold">Hecha para el sector alimenticio, farmacéutico e
+              industrial</h3>
             <div className="relative h-[56%] overflow-hidden flex items-center order-2 md:order-1 mb-8 md:hidden">
               <Image src={i08} className="object-cover"/>
             </div>
-            <p className="order-3 ft-2">Si tu producto es liquido, viscoso, sólido, polvo, estamos listos para aumentar la
+            <p className="order-3 ft-2">Si tu producto es liquido, viscoso, sólido, polvo, estamos listos para aumentar
+              la
               productividad de tu negocio.</p>
           </div>
         </div>
@@ -175,7 +178,8 @@ export default function Home() {
             <div className="relative h-[56%] overflow-hidden flex items-center order-2 md:order-1 mb-8 md:hidden">
               <Image src={i10} className="object-cover"/>
             </div>
-            <p className="order-3 ft-2">Si ya decidiste implementar envasadoras automáticas en tu empresa, aquí te van los
+            <p className="order-3 ft-2">Si ya decidiste implementar envasadoras automáticas en tu empresa, aquí te van
+              los
               tiempos:<br/>
               En el momento que nos digas que sí, nos va a tomar 2 meses entregarte tu equipo y ponerlo en marcha.
               Acordamos contigo tiempos y fechas para no afectar la operación de tu negocio.</p>
@@ -263,17 +267,17 @@ export default function Home() {
       <section className="reading-container my-16">
         <p className="ft-2">
           Seguramente llegaste aquí por 3 razones:
-          <br/><br/>
-          <ol>
-            <li className="ft-2">Tus costos de producción están por las nubes y no ves cómo reducirlos.</li>
-            <li className="ft-2">Tu capacidad de producción no es suficiente para cumplir con la demanda de tus
-              clientes.
-            </li>
-            <li className="ft-2">Tus empaques no tienen la calidad o presentación que necesita tu producto para
-              destacar.
-            </li>
-          </ol>
-          <br/>
+        </p>
+        <ol>
+          <li className="ft-2">Tus costos de producción están por las nubes y no ves cómo reducirlos.</li>
+          <li className="ft-2">Tu capacidad de producción no es suficiente para cumplir con la demanda de tus
+            clientes.
+          </li>
+          <li className="ft-2">Tus empaques no tienen la calidad o presentación que necesita tu producto para
+            destacar.
+          </li>
+        </ol>
+        <p className="ft-2">
           Queremos que reduzcas tus costos operativos, aumentes tu productividad y mejores la
           calidad de tus productos para que tengas una ventaja competitiva en el mercado.
           {/*<br/><br/>*/}
