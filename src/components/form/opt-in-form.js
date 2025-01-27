@@ -1,20 +1,22 @@
 import Link from 'next/link';
 import { info } from '../../../info';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { getCookie, setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { restrictNumber, emailRegExp } from '../../utils/formValidators';
 import fbEvent from '../../services/fbEvents';
+import { Select } from './formAtoms';
 
 export default function OptInForm({lastClick = ''}) {
   const [sending, setSending] = useState(false);
   const router = useRouter();
+  const methods = useForm({mode: 'all'});
   const {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm();
+  } = methods;
 
   const onSubmit = (data) => {
     setSending(true);
@@ -60,66 +62,79 @@ export default function OptInForm({lastClick = ''}) {
   };
 
   return (
-    <form className="flex flex-col w-full space-y-4" onSubmit={handleSubmit(onSubmit)}>
-      <input
-        {...register(
-          'fullName',
-          {
-            required: true,
-          },
-        )}
-        className={errors.fullName && '!bg-red-200'}
-        placeholder="Tu nombre"/>
-      <input
-        {...register(
-          'email',
-          {
-            required: true,
-            pattern: {
-              value: emailRegExp,
-              message: 'Revisa tu correo',
+    <FormProvider {...methods}>
+      <form className="flex flex-col w-full space-y-4" onSubmit={handleSubmit(onSubmit)}>
+        <input
+          {...register(
+            'fullName',
+            {
+              required: true,
             },
-          },
-        )}
-        className={errors.email && '!bg-red-200'}
-        placeholder="Un email activo"/>
-      <input
-        {...register(
-          'phone',
-          {required: true, maxLength: 10, minLength: 10},
-        )}
-        className={errors.phone && '!bg-red-200'}
-        onKeyDown={restrictNumber}
-        placeholder="Teléfono de WhatsApp"/>
-      <input
-        {...register(
-          'company',
-          {required: true},
-        )}
-        className={errors.company && '!bg-red-200'}
-        placeholder="Nombre de tu empresa"/>
-      <input
-        {...register(
-          'units',
-        )}
-        className={errors.units && '!bg-red-200'}
-        onKeyDown={restrictNumber}
-        placeholder="Cuántos paquetes envasas al mes?"/>
+          )}
+          className={errors.fullName && '!bg-red-200'}
+          placeholder="Tu nombre"/>
+        <input
+          {...register(
+            'email',
+            {
+              required: true,
+              pattern: {
+                value: emailRegExp,
+                message: 'Revisa tu correo',
+              },
+            },
+          )}
+          className={errors.email && '!bg-red-200'}
+          placeholder="Un email activo"/>
+        <input
+          {...register(
+            'phone',
+            {required: true, maxLength: 10, minLength: 10},
+          )}
+          className={errors.phone && '!bg-red-200'}
+          onKeyDown={restrictNumber}
+          placeholder="Teléfono de WhatsApp"/>
+        <input
+          {...register(
+            'company',
+            {required: true},
+          )}
+          className={errors.company && '!bg-red-200'}
+          placeholder="Nombre de tu empresa"/>
+        <Select
+          name='units'
+          options={[
+            {value: '–20,000', name: 'Menos de 20,000'},
+            {value: '20,000-50,000', name: '20,000 a 50,000'},
+            {value: '50,000-100,000', name: '50,000 a 100,000'},
+            {value: '100,000-250,000', name: '100,000 a 250,000'},
+            {value: '250,000+', name: 'Más de 250,000'},
+          ]}
+          placeholder="Cuántos paquetes envasas por mes?"
 
-      <button
-        disabled={sending}
-        className={`w-full ${sending ? '!bg-transparent' : 'hover:!bg-brand-3'}`}
-      >{
-        !sending
-          ? 'Enviar →'
-          : <span className="material-symbols-outlined animate-spin">progress_activity</span>
-      }</button>
+        />
+        <input
+          {...register(
+            'product',
+          )}
+          className={errors.units && '!bg-red-200'}
+          placeholder="De qué producto?"/>
 
-      <div className="mt-4">
-        <p className="-ft-3 text-center text-white">Al dar clic aceptas nuestra&nbsp;
-          <Link href={info.privacyNotice}>política de privacidad</Link>
-        </p>
-      </div>
-    </form>
+        <button
+          disabled={sending}
+          className={`w-full ${sending ? '!bg-transparent' : 'hover:!bg-brand-3'}`}
+        >{
+          !sending
+            ? 'Enviar →'
+            : <span className="material-symbols-outlined animate-spin">progress_activity</span>
+        }</button>
+
+        <div className="mt-4">
+          <p className="-ft-3 text-center text-white">Al dar clic aceptas nuestra&nbsp;
+            <Link href={info.privacyNotice}>política de privacidad</Link>
+          </p>
+        </div>
+      </form>
+    </FormProvider>
   );
 }

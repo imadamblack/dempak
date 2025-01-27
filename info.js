@@ -24,7 +24,7 @@ export const info = {
     state: "Jalisco",
   },
   optInWebhook: 'https://hook.us1.make.com/4dhkn5dp2ivtp1nnwtdpfxgsdgihirfk',
-  surveyRedirect: '',
+  surveyRedirect: 'https://dempak-industrial.odoo.com/appointment/3?invite_token=6b225d50398e49c2a1de1ec863eea34a&filter_appointment_type_ids=%5B3%5D&filter_staff_user_ids=%5B6%5D',
   privacyNotice: "/aviso-privacidad",
   termsConditions: "/aviso-privacidad",
 };

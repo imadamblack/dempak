@@ -17,6 +17,13 @@ export default function ThankYou() {
             <span className="material-icons">arrow_forward</span>Da click aquí<span
             className="text-white material-icons">arrow_back</span>
           </a>
+          <a
+            className="ft-2 mt-12 py-3 px-6 rounded-lg items-center text-brand-1 cursor-pointer"
+            href={info.surveyRedirect}
+            target="_blank"
+          >
+            O programa una llamada <span className="font-semibold">aquí</span> ›
+          </a>
         </div>
 
       </div>
